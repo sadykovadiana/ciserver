@@ -8,6 +8,7 @@
     transition: opacity 500ms;
     visibility: visible;
     opacity: 1;
+    z-index: 1;
 }
 
 .Modal_display-hide {
@@ -53,6 +54,19 @@
 .Modal .Button_size_m {
     width: auto;
 }
+
+.Modal_size-s {
+    background-color: white;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.Modal_size-s button {
+    text-align: center;
+}
+
 @media (max-width: 576px) {
     .Modal .Form {
         width: 95%;

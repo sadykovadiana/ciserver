@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../layouts/header';
 import Footer from '../layouts/footer';
 import Form from '../layouts/form';
@@ -8,8 +9,10 @@ import Main from '../layouts/main';
 import { SIZES as BUTTON_SIZES, VIEWS as BUTTON_VIEWS, PINS as BUTTON_PINS } from '../components/button/constants';
 import { SIZES as INPUT_SIZES, LABELFORMATS } from '../components/input/constants';
 import { Link as RouterLink } from 'react-router-dom';
+import Modal from '../components/modal';
+import { useHistory } from 'react-router-dom';
 
-const initialState = { repo: '', command: '', branch: '' };
+const initialState = { repo: '', command: '', branch: '', interval: '', error: '' };
 
 function reducer(state, action) {
     switch (action.type) {
@@ -21,21 +24,39 @@ function reducer(state, action) {
             return { ...state, branch: action.payload };
         case 'interval':
             return { ...state, interval: action.payload };
+        case 'error':
+            return { ...state, error: action.payload };
         default:
             throw new Error();
     }
 }
 
-const SettingsFormPage = (props) => {
+const SettingsFormPage = () => {
+    const history = useHistory();
+    const handleOnClick = useCallback(() => history.push('/'), [history]);
+    const actionDispatch = useDispatch();
     const [state, dispatch] = useReducer(reducer, initialState);
-
     const handleChange = (e) => {
         const { value, name } = e.target;
         dispatch({ type: name, payload: value });
     };
 
     const handleReset = (name) => dispatch({ type: name, payload: '' });
+
     const saveBtnDisable = !state.repo || !state.command;
+
+    const save = () => {
+        getPromise(Math.random())
+            .then((res) => {
+                console.log('GET_GIT_HISTORY_SUCCEESS');
+                actionDispatch({ type: 'SAVE_SETTINGS', payload: state });
+                handleOnClick();
+            })
+            .catch((err) => {
+                console.log('GET_GIT_HISTORY_ERROR');
+                dispatch({ type: 'error', payload: 'An error occured during cloning git repository' });
+            });
+    };
 
     return (
         <>
@@ -97,8 +118,8 @@ const SettingsFormPage = (props) => {
                             Save
                         </Button>
                     ) : (
-                        <Button size={BUTTON_SIZES.M} view={BUTTON_VIEWS.ACTION} pin={BUTTON_PINS.ROUND_ROUND} onClick={() => props.onSave()}>
-                            <RouterLink to="/">Save</RouterLink>
+                        <Button size={BUTTON_SIZES.M} view={BUTTON_VIEWS.ACTION} pin={BUTTON_PINS.ROUND_ROUND} onClick={save}>
+                            Save
                         </Button>
                     )}
                     <Button size={BUTTON_SIZES.M} view={BUTTON_VIEWS.DEFAULT} pin={BUTTON_PINS.ROUND_ROUND}>
@@ -107,9 +128,28 @@ const SettingsFormPage = (props) => {
                 </Form>
             </Main>
 
+            {state.error && (
+                <Modal>
+                    <div className="Modal_size-s">
+                        <h4>An error occured during cloning git repository</h4>
+                        <Button size={BUTTON_SIZES.M} view={BUTTON_VIEWS.DEFAULT} pin={BUTTON_PINS.ROUND_ROUND}>
+                            <RouterLink to="/">OK</RouterLink>
+                        </Button>
+                    </div>
+                </Modal>
+            )}
             <Footer />
         </>
     );
 };
+
+function getPromise(random) {
+    return new Promise(function (resolve, reject) {
+        function decideStatus() {
+            random > 0.5 ? resolve('fulfilled') : reject('rejected');
+        }
+        setTimeout(decideStatus, random * 3000);
+    });
+}
 
 export default SettingsFormPage;

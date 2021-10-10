@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React from 'react';
 import './form.css';
 
 const Form = ({ children }) => {
-    const [name, setName] = useState('');
-
     const handleSubmit = (event) => {
         event.preventDefault();
     };

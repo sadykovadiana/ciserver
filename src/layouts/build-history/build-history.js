@@ -7,7 +7,7 @@ import { SIZES as BUTTON_SIZES, VIEWS as BUTTON_VIEWS, PINS as BUTTON_PINS } fro
 
 const listItems = data.map((build) => (
     <BuildBlock
-        key={build.buildNum}
+        key={build.buildNum + build.hash}
         status={build.status}
         buildNum={build.buildNum}
         title={build.title}

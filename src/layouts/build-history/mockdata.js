@@ -51,7 +51,7 @@ export const data = [
     },
     {
         status: 'error',
-        buildNum: '#1367',
+        buildNum: '#1363',
         title: 'replace all `div` to `article`',
         branch: 'master',
         hash: '952e5567',

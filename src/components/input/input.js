@@ -41,7 +41,6 @@ const Input = ({
                     value={value}
                     required={required}
                     placeholder={placeholder}
-                    oninvalid="this.setCustomValidity('required field')"
                     onChange={onChange && ((e) => onChange(e))}
                 />
 

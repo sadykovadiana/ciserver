@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import Header from '../layouts/header';
 import Footer from '../layouts/footer';
 import Main from '../layouts/main';
@@ -10,9 +10,12 @@ import { VIEWS as BUTTON_VIEWS, PINS as BUTTON_PINS } from '../components/button
 import BuildHistory from '../layouts/build-history';
 import BuildPopup from '../layouts/build-popup';
 import { Link as RounterLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getSettings } from '../redux/selectors';
 
-const MainPage = ({ settings }) => {
+const MainPage = () => {
     const [showModal, setShowModal] = useState(false);
+    const settings = useSelector((state) => getSettings(state)).repo;
 
     const title = settings ? 'philip1967/my-awesome-repo' : 'School CI server';
     const className = settings ? 'Header Header_view_primary' : 'Header Header_view_secondary';
