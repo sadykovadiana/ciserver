@@ -1,0 +1,32 @@
+.Footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 5%;
+    background-color: var(--blue-grey-50);
+    line-height: 24px;
+}
+
+.Footer span {
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--letter-spacing);
+    color: var(--blue-grey-500);
+}
+
+.Footer > * {
+    margin-right: 12px;
+}
+
+@media (min-width: 576px) {
+    .Footer {
+        padding: 4px 5%;
+    }
+    .Footer span {
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Footer {
+        padding: 4px 89px 4px 100px;
+    }
+}

@@ -1,0 +1,63 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 40%);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+}
+
+.Modal_display-hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.Modal .Form {
+    margin: 289px auto 0;
+    padding: 22px 0 22px 18px;
+    background: #fff;
+    border-radius: 5px;
+    width: 47%;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.Modal .Button_size_m {
+    padding: 0 20px;
+}
+
+.Modal .Form h4 {
+    font-size: var(--font-size-m);
+    font-weight: 500;
+}
+
+.Modal .Form label {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.06px;
+}
+
+.Modal .Input__Input-view-clear {
+    margin: 7px 0 3px;
+}
+
+.Modal .Reset-icon {
+    left: 91%;
+}
+
+.Modal .Input_size_m input[type='text'] {
+    width: 96.5%;
+}
+.Modal .Button_size_m {
+    width: auto;
+}
+@media (max-width: 576px) {
+    .Modal .Form {
+        width: 95%;
+    }
+    .Modal .Reset-icon {
+        left: 85%;
+    }
+}

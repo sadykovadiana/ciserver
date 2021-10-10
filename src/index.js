@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import MainPage from './pages/main-page';
+import SettingsFormPage from './pages/settings-form-page';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+    const [settings, setSettings] = useState(false);
+    const saveSettings = () => setSettings(true);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    return (
+        <Router>
+            <Route path="/" render={() => <MainPage settings={settings} />} exact={true} />
+            <Route path="/settings" render={() => <SettingsFormPage onSave={saveSettings} />} />
+        </Router>
+    );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -1,0 +1,119 @@
+:root {
+    --input-size-xs: 52px;
+    --input-size-s: 288px;
+    --input-size-m: 446px;
+    --input-size-l: 474px;
+}
+
+.Input_label_under label {
+    display: block;
+}
+
+.Input_label_required label::after {
+    content: '*';
+    color: var(--red-500);
+    padding: 3px;
+}
+
+input[type='text'],
+input[type='number'] {
+    height: 36px;
+    margin: 8px 0;
+    padding-left: 11px;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+    outline: none;
+    border: 2px solid #b3b3b3;
+}
+
+.Reset-icon {
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+}
+.Reset-icon {
+    background-image: url('../../images/icons/clear.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 16px;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 19.7em;
+    top: 18px;
+    margin: auto;
+    cursor: pointer;
+}
+.Input__Input-view-clear input:placeholder-shown ~ .Reset-icon {
+    display: none;
+}
+
+.Input_size_xs input {
+    width: var(--input-size-xs);
+}
+
+.Input_size_l input[type='text'] {
+    width: var(--input-size-s);
+}
+
+.Input__Input-view-clear {
+    position: relative;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.Input_label_under {
+    padding-top: 11px;
+}
+
+.Input_label_follow {
+    padding-bottom: 4.5%;
+}
+
+.Input_label_follow label {
+    padding-right: 9px;
+}
+
+.Input_label_follow div input {
+    margin-right: 9px;
+}
+
+.Input_label_follow .Input__Input-view-clear {
+    display: inline;
+}
+
+@media (min-width: 576px) {
+    .Input_size_m input[type='text'] {
+        width: var(--input-size-m);
+    }
+
+    .Input_size_l input[type='text'] {
+        width: var(--input-size-l);
+    }
+
+    .Input_size_l .Reset-icon {
+        left: 33em;
+    }
+
+    .Input_label_follow {
+        padding: 4px 0 15px;
+    }
+}

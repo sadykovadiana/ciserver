@@ -1,0 +1,36 @@
+.Icon-with-label_view_branch {
+    background-image: url('../../images/icons/branch.svg');
+    background-position: 0px 4px;
+}
+.Icon-with-label_view_user {
+    background-image: url('../../images/icons/user.svg');
+    background-position: 0px 4px;
+}
+.Icon-with-label_view_calendar {
+    background-image: url('../../images/icons/calendar.svg');
+}
+.Icon-with-label_view_timer {
+    background-image: url('../../images/icons/timer.svg');
+}
+.IconWithLabel {
+    background-repeat: no-repeat;
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 8px;
+}
+.Icon-with-label_view_secondary {
+    padding-left: 5px;
+}
+.Icon-with-label_view_calendar {
+    padding-right: 8px;
+}
+
+@media (min-width: 576px) {
+    .IconWithLabel {
+        display: inline;
+    }
+    .Icon-with-label_view_user {
+        background-position: 10px 0px;
+        padding-left: 29px;
+    }
+}

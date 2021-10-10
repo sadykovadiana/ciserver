@@ -1,0 +1,110 @@
+.Commit {
+    box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+    border-radius: 6px;
+    padding: 4px 12px 0 37px;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: 1em 1.3em;
+    font-size: var(--font-size-xs);
+}
+
+.Commit_view_success {
+    background-image: url('../../images/icons/commit_ok.svg');
+}
+.Commit_view_error {
+    background-image: url('../../images/icons/commit_error.svg');
+}
+.Commit_view_load {
+    background-image: url('../../images/icons/commit_load.svg');
+}
+
+.Commit_view_success .Commit_title span {
+    color: var(--green-500);
+}
+
+.Commit_view_error .Commit_title span {
+    color: var(--red-500);
+}
+
+.Commit_view_load .Commit_title span {
+    color: var(--orange-500);
+}
+
+.Commit_view_success {
+    background-image: url('../../images/icons/commit_ok.svg');
+}
+.Commit_view_error {
+    background-image: url('../../images/icons/commit_error.svg');
+}
+.Commit_view_load {
+    background-image: url('../../images/icons/commit_load.svg');
+}
+
+.Commit_view_success .Commit_title span {
+    color: var(--green-500);
+}
+
+.Commit_view_error .Commit_title span {
+    color: var(--red-500);
+}
+
+.Commit_view_load .Commit_title span {
+    color: var(--orange-500);
+}
+p.Commit_title {
+    font-size: var(--font-size-s);
+    padding-bottom: 8px;
+    max-width: 98%;
+    line-height: 20px;
+}
+.Commit_title span {
+    display: block;
+    padding-bottom: 6px;
+}
+.Build-block_view-start {
+    padding-bottom: 2px;
+}
+.Build-block_view-end {
+    border-top: 1px solid var(--blue-grey-50);
+    padding-top: 8px;
+    padding-bottom: 17px;
+}
+
+.Build-block_view-end span {
+    display: inline;
+}
+@media (min-width: 890px) {
+    .Commit_title span {
+        display: inline;
+    }
+
+    .Commit {
+        background-size: 23px;
+        background-position: 24px 13px;
+        padding: 3px 12px 0 56px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Commit_title span {
+        font-size: var(--font-size-m);
+        line-height: 20px;
+        padding-right: 4px;
+    }
+    .Build-block_view-start {
+        width: 80%;
+    }
+    .Build-block_view-end {
+        width: 20%;
+        border: 0;
+    }
+
+    .Build-block_view-end span {
+        display: block;
+    }
+
+    .Build-block_view-end {
+        padding: 10px 0 3px 41px;
+        line-height: 18px;
+    }
+}

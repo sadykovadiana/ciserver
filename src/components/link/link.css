@@ -1,0 +1,11 @@
+.Link {
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--letter-spacing);
+    text-decoration: none;
+    color: var(--blue-grey-500);
+    line-height: 24px;
+}
+
+.Link:hover {
+    color: var(--red-500);
+}

@@ -1,0 +1,11 @@
+.Build-history {
+    padding-top: 11px;
+}
+
+@media (min-width: 1024px) {
+    .Build-history {
+        padding-top: 9px;
+        padding-left: 10px;
+        width: 99%;
+    }
+}
